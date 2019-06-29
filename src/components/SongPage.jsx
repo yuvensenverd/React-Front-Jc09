@@ -2,23 +2,30 @@ import React from 'react'
 import { Table } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 
+class Song{
+    constructor(a,b,c){
+        this.id = a
+        this.name = b
+
+    }
+}
 
 
 class SongPage extends React.Component{
     state={
-        data : [{id: 11, name: "ColdPLay"},
-                {id: 12, name: "PlanetShakers"},
-                {id: 13, name: "Artist"},
-                {id: 14, name: "ABC"},
-                {id: 15, name: "WOW"},
-                {id: 16, name: "asdav"},
-                {id: 17, name: "afgfdgd"},
-                {id: 18, name: "Hillsong"},
-                {id: 19, name: "rnyt"},
-                {id: 21, name: "alliance"},
-                {id: 31, name: "pes2019"},
-                {id: 32, name: "idjfsidf"},
-                {id: 33, name: "sdgisjdigjs"}],
+        data : [new Song(11, "ColdPLay"),
+                new Song(12, "PlanetShakers"),
+                new Song(13, "Artist"),
+                new Song(14, "ABC"),
+                new Song(15, "WOW"),
+                new Song(16, "asdav"),
+                new Song(17, "afgfdgd"),
+                new Song(18, "Hillsong"),
+                new Song(19, "rnyt"),
+                new Song(21, "alliance"),
+                new Song(31, "pes20192"),
+                new Song(32, "idjfsidf"),
+                new Song(33, "sdgisjdigjs")],
 
         filtertext : ""
         

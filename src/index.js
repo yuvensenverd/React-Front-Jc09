@@ -6,10 +6,17 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 // 
+import Reducer from './redux/reducers'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<BrowserRouter>
+const storeuserdata = createStore(Reducer)
+
+ReactDOM.render(<Provider store={storeuserdata}>
+<BrowserRouter>
 <App />
 </BrowserRouter>
+</Provider>
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

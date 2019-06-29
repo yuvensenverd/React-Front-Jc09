@@ -15,7 +15,7 @@ import {
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-export default class Example extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,31 +37,31 @@ export default class Example extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+            <NavItem> 
+            
+                <NavLink >Welcome, {this.props.useracc}</NavLink>
+               
+              </NavItem>
+            <NavItem> 
+              <Link to='/components/RegisterPage'>
+                <NavLink >Register</NavLink>
+                </Link>
               </NavItem>
               <NavItem> 
               <Link to='/components/SongPage'>
                 <NavLink >SongList</NavLink>
                 </Link>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem> 
+              <Link to='/components/LoginPage'>
+                <NavLink >LogIn</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem> 
+        
+                <NavLink ></NavLink>
+              
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
@@ -69,3 +69,11 @@ export default class Example extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return{
+      useracc : state.USER_DATA.USER_ID,
+      userpass : state.USER_DATA.USER_PASS
+  }
+}
+
+export default connect(mapStateToProps)(Header);
